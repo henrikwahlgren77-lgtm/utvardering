@@ -32,7 +32,8 @@ kontakt: Namn eller e-post om du vill bli kontaktad (frivilligt)
 ## Drift (Docker + Caddy)
 
 ```sh
-BASE_URL=https://utvardering.krigare.se docker compose up -d --build
+printf "BASE_URL=https://utvardering.krigare.se\nHOST_PORT=3200\n" > .env
+docker compose up -d --build
 docker compose exec utvardering node src/cli.js invite     # första kontot
 ```
 

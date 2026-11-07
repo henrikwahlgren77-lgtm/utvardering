@@ -1,11 +1,12 @@
-# Lägg till i din befintliga Caddyfile (byt domän).
+# Lägg till i din befintliga Caddyfile. Port 3200 = HOST_PORT i .env (3000 var upptagen av krigare.se).
 # Caddy loggar inte klient-IP här: ingen "log"-direktiv aktiveras för den här sajten.
 utvardering.krigare.se {
 	encode zstd gzip
+	header -Server
 	request_body {
 		max_size 128KB
 	}
-	reverse_proxy 127.0.0.1:3000 {
+	reverse_proxy 127.0.0.1:3200 {
 		header_up X-Forwarded-For {remote_host}
 	}
 }

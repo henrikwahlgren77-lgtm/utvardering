@@ -4,7 +4,7 @@ services:
     build: .
     restart: unless-stopped
     ports:
-      - "127.0.0.1:3000:3000"
+      - "127.0.0.1:${HOST_PORT:-3000}:3000"
     environment:
       BASE_URL: ${BASE_URL:?sätt BASE_URL, t.ex. https://utvardering.krigare.se}
       TRUST_PROXY: "1"
