@@ -1,6 +1,6 @@
 # Lägg till i din befintliga Caddyfile (byt domän).
 # Caddy loggar inte klient-IP här: ingen "log"-direktiv aktiveras för den här sajten.
-utvardering.example.se {
+utvardering.krigare.se {
 	encode zstd gzip
 	request_body {
 		max_size 128KB

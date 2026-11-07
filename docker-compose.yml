@@ -6,7 +6,7 @@ services:
     ports:
       - "127.0.0.1:3000:3000"
     environment:
-      BASE_URL: ${BASE_URL:?sätt BASE_URL, t.ex. https://utvardering.example.se}
+      BASE_URL: ${BASE_URL:?sätt BASE_URL, t.ex. https://utvardering.krigare.se}
       TRUST_PROXY: "1"
     volumes:
       - utvardering-data:/data
