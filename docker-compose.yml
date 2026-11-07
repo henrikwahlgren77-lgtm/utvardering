@@ -1,0 +1,21 @@
+# Appen exponeras bara på localhost; Caddy på värden terminerar HTTPS.
+services:
+  utvardering:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      BASE_URL: ${BASE_URL:?sätt BASE_URL, t.ex. https://utvardering.example.se}
+      TRUST_PROXY: "1"
+    volumes:
+      - utvardering-data:/data
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  utvardering-data:

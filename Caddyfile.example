@@ -1,0 +1,11 @@
+# Lägg till i din befintliga Caddyfile (byt domän).
+# Caddy loggar inte klient-IP här: ingen "log"-direktiv aktiveras för den här sajten.
+utvardering.example.se {
+	encode zstd gzip
+	request_body {
+		max_size 128KB
+	}
+	reverse_proxy 127.0.0.1:3000 {
+		header_up X-Forwarded-For {remote_host}
+	}
+}
